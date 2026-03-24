@@ -1,0 +1,4 @@
+interface:
+  display_name: "DT"
+  short_description: "Route DT questions to packaged lessons"
+  default_prompt: "Use DT to answer Design Thinking questions from the packaged lesson summaries first."
