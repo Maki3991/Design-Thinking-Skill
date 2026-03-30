@@ -1,101 +1,92 @@
----
+﻿---
 name: dt
-description: Route Design Thinking questions to the right packaged lesson summaries and synthesize grounded answers. Use when the user asks about Design Thinking concepts, course structure, lesson routing, applying DT to products, projects, or life decisions, or wants answers based on this DT course pack rather than generic DT knowledge.
+description: 将 Design Thinking 问题路由到正确的内置课程参考文档，并基于这套课程材料而不是泛化知识进行回答。适用于用户询问 Design Thinking 概念、课程结构、课程路由、将 DT 用于产品/项目/人生设计，或希望答案基于这个 DT 课程包时。
 ---
 
 # DT
+使用这个 skill 时，先把用户问题路由到正确的内置 reference，再基于课程材料综合回答。
 
-Use this skill to answer Design Thinking questions by routing to the right lesson references first, then synthesizing an answer from the packaged course materials.
+## 核心工作流
+1. 先读 `references/router.md`。它是整套课程的一级路由入口，也是每个问题的默认导航表。
+2. 把问题归类到一个或多个 DT 阶段。使用下面这些阶段桶：
+   - `intro/life-design`
+   - `define`
+   - `hmw/ideate`
+   - `prototype`
+   - `test/mvp`
+3. 路由完成后，再读取最少必要的 lesson 文件。默认映射：
+   - `intro/life-design` -> `references/DT1.md`
+   - `define` -> `references/define-problem.md`
+   - `hmw/ideate` -> `references/hmw-ideate.md`
+   - `prototype` -> `references/prototype.md`
+   - `test/mvp` -> `references/test-mvp.md`
+4. 把 `DT1.md` 当成“导论补充 reference”，不要把它当成通用背景文件。只有当用户在问下面这些内容时，才默认读取 `DT1.md`：
+   - `DT 是什么 / 为什么学 DT / DT 和人生设计的关系`
+   - `grow zone / 迷茫 / 发散与收敛 / understand 自己`
+   - 整套课的大图景
+   - 人生设计端到端
+5. 对于单阶段问题，除非问题明显回到了 Lesson 1 的概念层，否则不要带上 `DT1.md`。尤其适用于：
+   - `define`
+   - `hmw/ideate`
+   - `prototype`
+   - `test/mvp`
+6. 当问题跨阶段时，再组合多个 reference。常见组合：
+   - `understand self` -> `router + DT1 + define`
+   - `POV to ideas` -> `router + define + hmw/ideate`
+   - `idea to low-cost validation` -> `router + hmw/ideate + prototype`
+   - `prototype vs MVP` -> `router + prototype + test/mvp`
+   - `life design end-to-end` -> `router + DT1 + all stages in order`
+7. 回答时优先使用这套课程自己的 framing。如果补充了课程外的一般 DT 知识，要明确标注为推断或泛化。
 
-## Core Workflow
+## 阶段识别提示
 
-1. Read `references/router.md` first.
-   Use it as the top-level map of the course and the default routing table.
-
-2. Classify the request into one or more DT stages.
-   Use these buckets:
-   - `intro/life-design`
-   - `define`
-   - `hmw/ideate`
-   - `prototype`
-   - `test/mvp`
-
-3. Read the minimum relevant lesson files.
-   Default mapping:
-   - `intro/life-design` -> `references/lesson1-awakening.md`
-   - `define` -> `references/define-problem.md`
-   - `hmw/ideate` -> `references/hmw-ideate.md`
-   - `prototype` -> `references/prototype.md`
-   - `test/mvp` -> `references/test-mvp.md`
-
-4. Combine references when the question crosses stages.
-   Common combinations:
-   - `understand self` -> lesson 1 + define
-   - `POV to ideas` -> define + HMW/ideate
-   - `idea to low-cost validation` -> HMW/ideate + prototype
-   - `prototype vs MVP` -> prototype + test
-   - `life design end-to-end` -> all stages in order
-
-5. Answer from the packaged course framing first.
-   If you add general DT knowledge beyond these files, label it as inference or generalization.
-
-## Stage Heuristics
-
-Use these quick cues when routing:
-
+可用下面这些线索快速路由：
 - `intro/life-design`
-  - DT meaning, why DT matters, diverge/converge, grow zone, life design, understanding self, why迷茫 is normal
-
+	- DT 是什么、为什么 DT 重要、发散/收敛、grow zone、人生设计、理解自己、为什么迷茫是正常的
 - `define`
-  - root cause, pain point, empathy, interview, insight, POV, 5 whys, 5W1H, defining the real problem
-
+	- 根因、痛点、共情、访谈、insight、POV、5 whys、5 W 1 H、如何定义真正的问题
 - `hmw/ideate`
-  - HMW, brainstorming, ideation, idea generation, idea filtering, when to diverge or converge
-
+	- HMW、brainstorming、ideation、idea generation、idea filtering、什么时候该发散、什么时候该收敛
 - `prototype`
-  - prototype, CFP, CEP, funky prototype, dark horse, box prototype, vision prototype, low-cost validation
-
+	- Prototype、CFP、CEP、funky prototype、dark horse、box prototype、vision prototype、低成本验证
 - `test/mvp`
-  - test, MVP, minimum loop, A/B testing, iteration, validating willingness to pay, validating assumptions
+	- Test、MVP、minimum loop、A/B testing、iteration、验证支付意愿、验证关键假设
 
-## Answer Shape
+## 回答结构
 
-Prefer this structure unless the user asks for something else:
+除非用户另有要求，优先按这个结构回答：
+1. 先指出当前问题处在 DT 的哪个阶段。
+2. 用大白话解释概念。
+3. 映射到用户语境：
+	- 人生决策
+	- 产品/项目
+	- 课程理解
+4. 如果合适，指出下一步应该进入哪个阶段。
+5. 标明你使用了哪些 reference 文件。
 
-1. State the current DT stage.
-2. Explain the concept in plain language.
-3. Map it to the user's context:
-   - life decision
-   - product/project
-   - course understanding
-4. Name the likely next stage when useful.
-5. Cite the reference files used.
+如果问题比较宽泛，要明确说出：
+- 用户当前大致在哪个阶段
+- 最相关的 lesson references 是哪些
+- 最实际的下一步动作是什么
 
-For broad questions, explicitly state:
+## 护栏
 
-- the user's current stage
-- the most relevant lesson references
-- the most practical next move
+- 如果问题还在 `define`，不要直接跳进解决方案模式。
+- 不要过度读取；先路由，再选择性读取。
+- 不要把 `DT1.md` 默认塞进每个回答。
+- 如果问题明显跨阶段，不要硬写成单阶段答案。
+- 除非用户明确要整套课总览，否则不要一次把所有 lessons 都展开。
+- 要清楚区分：哪些内容是课程直接表达，哪些内容是你的综合归纳。
 
-## Guardrails
+## 可选的工作区补充
 
-- Do not skip directly to solutions when the request is still in `define`.
-- Do not over-read; route first, then read selectively.
-- Do not force a single-stage answer when the problem is clearly cross-stage.
-- Do not present all lessons at once unless the user asks for an end-to-end overview.
-- Distinguish clearly between direct course content and your own synthesis.
-
-## Optional Workspace Enrichment
-
-If the current workspace contains additional DT files, you may use them as supplements after reading the packaged references.
-
-Typical supplemental filenames:
-
+如果当前 workspace 里还有额外的 DT 文件，可以在读完内置 references 后，把它们当作补充材料使用。
+常见补充文件名：
 - `DT1 - Router.md`
 - `Design thinking 1 - The Awakening.md`
 - `DT2-4 - How to Define a Problem.md`
 - `DT4 - From HMW to Ideate.md`
 - `DT5-6 - Prototype.md.md`
 - `DT7 - Test.md`
-
-Packaged references remain the default source of truth for this skill.
+这些是 workspace 里的补充文件，不是这个 skill 内置 reference 的正式命名。
+这个 skill 仍然以内置 references 作为默认事实来源。
